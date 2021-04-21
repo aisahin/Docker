@@ -1,7 +1,25 @@
-version: "3"
+version: "3.9"
 services:
+  influxdb:
+    image: influxdb
+    hostname: influxdb
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8086:8086
+    networks:
+      - monitoring
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    deploy:  
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M      
   grafana:
     image: grafana/grafana
+    hostname: grafana
     container_name: grafana
     restart: always
     ports:
@@ -10,21 +28,24 @@ services:
       - monitoring
     volumes:
       - grafana_data:/var/lib/grafana
-  influxdb:
-    image: influxdb
-    container_name: influxdb
-    restart: always
-    ports:
-      - 8086:8086
-    networks:
-      - monitoring
-    volumes:
-      - influxdb_data:/var/lib/influxdb
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
 networks:
   monitoring:
     external: true
 volumes:
-  grafana_data:
-    external: true
   influxdb_data:
+    name: influxdb_data
+    external: true
+  influxdb_config:
+    name: influxdb_config
+    external: true
+  grafana_data:
+    name: grafana_data
     external: true
