@@ -1,7 +1,9 @@
 # InfluxDB and Grafana
-**Docker Host:** 
+**Docker Host:**
 - Debian GNU/Linux 10 (buster)
-**Images:** 
+- Docker Engine - Community Version: 20.10.6
+
+**Images:**
 - influxdb:latest (2.0.4, Debian GNU/Linux 10 (buster))
 - grafana/grafana:latest (7.5.4, Alpine Linux)
 
