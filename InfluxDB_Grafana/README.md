@@ -59,4 +59,4 @@ influx v1 dbrp create --db example-db --rp example-rp --bucket-id {BUCKET_ID}
 - [Influxdb Docker image](https://hub.docker.com/_/influxdb)
 - [Grafana Docker image](https://hub.docker.com/r/grafana/grafana)
 - [Running InfluxDB 2.0 and Telegraf Using Docker](https://www.influxdata.com/blog/running-influxdb-2-0-and-telegraf-using-docker/)
-- [Use Grafana with InfluxDB OSS](https://docs.influxdata.com/influxdb/v2.0/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings)
+- [Use Grafana with InfluxDB OSS](https://docs.influxdata.com/influxdb/v2.0/tools/grafana/)
